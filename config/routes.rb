@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'wiki#index'
-  get '*path' => 'wiki#index'
+  root 'wikis#index'
+  # get '*path' => 'wiki#index'
 
-  resources :wiki, except: [:edit, :update] do
+  resources :wikis, except: [:edit, :update] do
     resources :articles
   end
 
