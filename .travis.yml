@@ -1,6 +1,6 @@
 language: ruby
 rvm:
- - 2.1.2p95 --create
+  - 2.1.2p95
 env:
   - DB=postgresql
 script:
