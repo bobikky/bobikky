@@ -10,7 +10,7 @@
 3. Write Code
 4. Commit the code with a good commit message
 5. Commits that include views must include screenshot(s)
-6. Push the branch to Github
+6. Push the branch to Github (after pulling master and merging)
 7. Create a Pull Request
 8. Hand off to a Reviewer (a team member who did not write any of the code)
 
