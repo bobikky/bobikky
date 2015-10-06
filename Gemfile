@@ -8,13 +8,10 @@ gem 'rails', '4.2.3'
 gem 'coveralls'
 gem 'pg'
 
-gem 'capybara'
-
 gem 'devise'
-
 gem 'ffaker'
-
 gem 'rails_12factor', group: :production
+gem 'ngannotate-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
