@@ -7,14 +7,10 @@ gem 'rails', '4.2.3'
 # gem 'sqlite3'
 gem 'coveralls'
 gem 'pg'
-
-gem 'capybara'
-
 gem 'devise'
-
 gem 'ffaker'
-
 gem 'rails_12factor', group: :production
+gem 'ngannotate-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -49,7 +45,6 @@ gem 'capybara-angular'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'byebug', '~> 6.0.2'
 gem 'nokogiri', '~> 1.6.6.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -65,4 +60,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0.0'
+end
+group :development do
+  gem 'byebug', '~> 6.0.2'
 end

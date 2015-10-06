@@ -9,9 +9,10 @@ angular.module('AngularRails')
     	var home = $scope;
 
     	home.wikis = [];
-
+      console.log('hi');
     	$http.get('/wikis.json').success(function(data){
     		home.wikis = data;
+        console.log(home.wikis);
     	});
     }])
 
@@ -19,4 +20,14 @@ angular.module('AngularRails')
       $scope.go = function(hash) {
         $window.location.href = hash;
       };
+    }])
+
+    .controller('WikiShowCtrl', ['$scope' , '$http', function ($scope,$http) {
+        var home = $scope;
+
+        home.wiki = [];
+
+        $http.get('wiki.json').success(function(data){
+            home.wiki = data;
+        });
     }]);
