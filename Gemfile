@@ -37,13 +37,14 @@ gem 'travis', '~> 1.8.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'byebug', '~> 6.0.2'
 gem 'nokogiri', '~> 1.6.6.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'railties'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+
   gem 'rspec-rails', '~> 3.0'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

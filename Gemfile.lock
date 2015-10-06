@@ -236,7 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  byebug (~> 6.0.2)
   coveralls
   devise
   ffaker
