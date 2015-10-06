@@ -17,9 +17,9 @@ class WikisController < ApplicationController
 
   def show
   	@wiki = Wiki.find_by(id: params[:id])
-  	@articles = Articles.where(wiki_id: params[:id])
+  	@articles = Article.where(wiki_id: params[:id])
 
-  	
+    render :"/wikis/show"
   end
 
 end
