@@ -9,9 +9,10 @@ angular.module('AngularRails')
     	var home = $scope;
 
     	home.wikis = [];
-
+      console.log('hi');
     	$http.get('/wikis.json').success(function(data){
     		home.wikis = data;
+        console.log(home.wikis);
     	});
     }])
 
