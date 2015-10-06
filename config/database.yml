@@ -1,6 +1,7 @@
 development:
+  default: &default
   adapter: postgresql
-  database: my_database_development
+  encoding: unicode
   pool: 5
   timeout: 5000
 test:
