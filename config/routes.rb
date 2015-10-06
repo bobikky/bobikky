@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
 
   root 'wiki#index'
+  get '*path' => 'wiki#index'
 
   resources :wiki, except: [:edit, :update] do
     resources :articles
   end
 
   devise_for :users, controllers: { sessions: "users/sessions" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'wikis#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
