@@ -4,6 +4,7 @@
 //     });
 
 angular.module('AngularRails')
+
     .controller('WikisCtrl', ['$scope' , '$http', function ($scope,$http) {
     	var home = $scope;
 
@@ -12,4 +13,10 @@ angular.module('AngularRails')
     	$http.get('/wikis.json').success(function(data){
     		home.wikis = data;
     	});
+    }])
+
+    .controller('UserCtrl', ['$scope', '$window', function ($scope, $window) {
+      $scope.go = function(hash) {
+        $window.location.href = hash;
+      };
     }]);
