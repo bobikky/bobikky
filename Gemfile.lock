@@ -55,6 +55,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-angular (0.2.2)
+      capybara (>= 2.5.0)
     coderay (1.1.0)
     coveralls (0.8.3)
       json (~> 1.8)
@@ -264,6 +266,7 @@ DEPENDENCIES
   bower-rails
   byebug (~> 6.0.2)
   capybara
+  capybara-angular
   coveralls
   devise
   ffaker
