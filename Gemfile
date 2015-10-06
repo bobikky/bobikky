@@ -49,7 +49,6 @@ gem 'angular-rails-templates'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'byebug', '~> 6.0.2'
 gem 'nokogiri', '~> 1.6.6.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -65,4 +64,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0.0'
+end
+group :development do
+  gem 'byebug', '~> 6.0.2'
 end
