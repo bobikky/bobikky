@@ -7,7 +7,6 @@ gem 'rails', '4.2.3'
 # gem 'sqlite3'
 gem 'coveralls'
 gem 'pg'
-
 gem 'devise'
 gem 'ffaker'
 gem 'rails_12factor', group: :production
