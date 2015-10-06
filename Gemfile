@@ -8,6 +8,8 @@ gem 'rails', '4.2.3'
 gem 'coveralls'
 gem 'pg'
 
+gem 'capybara'
+
 gem 'devise'
 
 gem 'ffaker'
@@ -33,15 +35,15 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-<<<<<<< HEAD
+
 gem 'travis', '~> 1.8.0'
-=======
+
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
 
 
->>>>>>> master
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,7 +57,7 @@ gem 'railties'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'jasmine-rails'
-  gem 'rspec-rails', '~> 3.0'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
