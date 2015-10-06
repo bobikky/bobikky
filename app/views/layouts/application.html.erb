@@ -19,12 +19,12 @@
 </head>
 <body ng-app="AngularRails">
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" ng-controller="UserCtrl">
 
     <div class="container-fluid">
 
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Wiki Wiki BoBikky</a>
+        <a class="navbar-brand" ng-click='go("/")'>Wiki Wiki BoBikky</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -44,8 +44,8 @@
               <%= link_to "logout", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
-            <li><a href="/users/sign_up">signup</a></li>
-            <li><a href="/users/sign_in">login</a></li>
+            <li><a ng-click='go("/users/sign_up")'>signup</a></li>
+            <li><a ng-click='go("/users/sign_in")'>login</a></li>
           <% end %>
         </ul>
       </div>
