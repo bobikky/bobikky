@@ -41,7 +41,7 @@ gem 'travis', '~> 1.8.0'
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
-
+gem 'capybara-angular'
 
 
 # Use ActiveModel has_secure_password
