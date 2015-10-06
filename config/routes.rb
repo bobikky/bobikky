@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  root 'wiki#index'
+
+  resources :wiki, except: [:edit, :update] do
+    resources :articles
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
