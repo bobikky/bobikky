@@ -3,7 +3,7 @@
 //         $scope.things = ['Angular', 'Rails 4.1', 'Working', 'Together!!'];
 //     });
 
-angular.module('AngularRails')
+angular.module('AngularRails', ['ngSanitize'])
 
     .controller('WikisCtrl', ['$scope' , '$window', '$http', function ($scope,$window,$http) {
     	var home = $scope;
@@ -33,4 +33,10 @@ angular.module('AngularRails')
         $http.get('wiki.json').success(function(data){
             home.wiki = data;
         });
-    }]);
+    }])
+
+    .filter('unsafe', function($sce) {
+      return function(val) {
+        return $sce.trustAsHtml(val);
+      };
+    });
