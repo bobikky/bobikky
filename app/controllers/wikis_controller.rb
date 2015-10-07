@@ -32,5 +32,4 @@ class WikisController < ApplicationController
     end
     render :"/wikis/show"
   end
-
 end
