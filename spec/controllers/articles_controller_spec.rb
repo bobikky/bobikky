@@ -16,8 +16,7 @@ RSpec.describe ArticlesController do
 
 	describe "GET new" do 
 		before{
-			@wiki = Wiki.create!(description:"Cash rules everything around me")
-			
+			@wiki = Wiki.create!(description:"Cash rules everything around me")	
 		}
 		it "renders the new article page" do
 		    get :new, {wiki_id: @wiki.id}
@@ -27,18 +26,12 @@ RSpec.describe ArticlesController do
 
 	describe 'POST create' do 
 		before{
-			@wiki = Wiki.create!(description:"Cash rules everything around me")
-			
+			@wiki = Wiki.create!(description:"Cash rules everything around me")	
 		}
-
 		it "creates a new article" do 
 			expect {
       			post :create, {wiki_id: @wiki.id, article: {:title => "M-E-T-H-O-D MAN", content: "ChessBoxin", published: false, needs_sources: false, wiki_id: @wiki.id} }
    			}.to change{Article.count}.by(1)
-		    # post :create, {wiki_id: @wiki.id}, :article => {:title => "M-E-T-H-O-D MAN", content: "ChessBoxin", published: true, needs_sources: false, wiki_id: @wiki.id}}
-		    # get "/wikis/#{@wiki.id}"
-		    # expect(assigns(:articles)).to eq([:article])
-		
 		end
   	end
 
@@ -52,10 +45,4 @@ RSpec.describe ArticlesController do
   			expect(response).to render_template(:edit)
   		end
   	end
-
-  	# describe 'put update' do 
-  	# 	before{
-
-  	# 	}
-  	# end
 end
