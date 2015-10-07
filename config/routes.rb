@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root 'wikis#index'
 
   resources :wikis, except: [:edit, :update] do
-  	resources :articles  
+    resources :articles, except:[:index]
   end
+
+  get '/wikis/:id/add_user', to: 'wikis#add_user', as: :add_user
 
 
   devise_for :users, controllers: { sessions: "users/sessions" }
