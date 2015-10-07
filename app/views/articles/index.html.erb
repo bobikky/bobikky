@@ -12,10 +12,7 @@
 			<div class="panel-heading">
         <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title%></a>
       </div>
-      <div class="panel-content"><%=article.content%></div>
-			<% parsed_html = Nokogiri::HTML(article.content) %>
-      <div class="panel-content"><%=parsed_html%></div>
-
+      <div class="panel-content"><%=article.content.html_safe%></div>
       </br>
     </div>
     <% end %>
