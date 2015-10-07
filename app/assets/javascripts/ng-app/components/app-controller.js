@@ -5,7 +5,7 @@
 
 angular.module('AngularRails')
 
-    .controller('WikisCtrl', ['$scope' , '$window', '$http', function ($scope,$window,$http) {
+    .controller('WikisCtrl', ['$scope', '$window', '$http', function ($scope, $window, $http) {
     	var home = $scope;
 
     	home.wikis = [];
@@ -16,7 +16,6 @@ angular.module('AngularRails')
         $scope.go = function(hash) {
             $window.location.href = hash;
         };
-
     }])
 
     .controller('UserCtrl', ['$scope', '$window', function ($scope, $window) {

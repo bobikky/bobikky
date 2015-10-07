@@ -4,6 +4,7 @@ angular
         'templates',
         'ngAnimate',
         'ui.bootstrap'
+        'ngSanitize'
     ]).config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {

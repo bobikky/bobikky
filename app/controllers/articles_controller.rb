@@ -34,11 +34,19 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    
+    @wiki = Wiki.find_by(id: params[:wiki_id])
+    @article = Article.find_by(id: params[:id])
+
+    @article.update(article_params)
+
+    redirect_to wiki_article_path(@wiki.id, @article.id)
   end
 
   def destroy
+    @article = Article.find_by(id: params[:id])
+    @article.destroy
 
+    redirect_to wiki_articles_path
   end
 
   private

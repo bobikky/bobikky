@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<h2> <%= @article.title %> </h2>
+		<h2> <%= @article.title.html_safe %> </h2>
     <h4> <%= @wiki.description %> </h4>
 	</div>
 </div>
@@ -11,15 +11,15 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <div class="panel-primary">
-    	<div class="panel-content"><%=@article.content%></div>
+    	<div class="panel-content"><%=@article.content.html_safe%></div>
     </div>
 
     <br><br>
 
     <% if current_user.admin? %>
       <a href="<%=edit_wiki_article_path(@wiki.id, @article.id)%>" class="btn btn-primary">Edit</a>
-      <a href="<%=%>" class="btn btn-danger">Delete</a>
-    <% elsif current_user %>
+			<%= link_to "Delete", wiki_article_path(@wiki.id, @article.id), method: :delete, class: "btn btn-danger" %>
+    <% elsif current_user && current_user.wikis.include?(@wiki) %>
       <a href="<%=edit_wiki_article_path(@wiki.id, @article.id)%>" class="btn btn-primary">Edit</a>
     <% end %>
 

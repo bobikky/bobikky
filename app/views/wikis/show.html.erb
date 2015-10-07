@@ -2,8 +2,14 @@
 	<div class="col-md-9 col-md-offset-1">
 		<h2> <%= @wiki.description %> </h2>
 	</div>
-  <div class="col-md-1">
-    <a href="/wikis/<%=@wiki.id%>/articles/new" class="btn btn-warning">Add Article</a>
+  <div class="col-md-2">
+
+		<a href="/wikis/<%=@wiki.id%>/articles/new" class="btn btn-warning">Add Article</a>
+
+		<% unless current_user.wikis.include?(@wiki) %>
+			<%= link_to "Join Wiki", add_user_path(@wiki.id), class: "btn btn-info" %>
+		<% end %>
+
   </div>
 </div>
 <br><br>
@@ -13,9 +19,9 @@
     <% @articles.each do |article| %>
     <div class="panel-primary">
       <div class="panel-heading">
-        <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title%></a>
+        <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title.html_safe%></a>
       </div>
-      <div class="panel-content"><%=article.content%></div>
+      <div class="panel-content"><%=article.content.html_safe%></div>
       </br>
     </div>
     <% end %>
