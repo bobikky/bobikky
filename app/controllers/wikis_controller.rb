@@ -33,17 +33,30 @@ class WikisController < ApplicationController
   end
 
   def search
-    p params
-    if (params[:article] == true && params[:wiki_type] == true)
-      p "first"
-      @articles = Article.where("(lower(title) LIKE ? OR lower(content) LIKE ?) AND lower(wiki_id) LIKE ?", "%#{params[:article].downcase}%", "%#{params[:article].downcase}%")
-    elsif params[:article]
-      p "second"
-      @articles = Article.where("lower(title) LIKE ? OR lower(content) LIKE ?", "%#{params[:article].downcase}%", "%#{params[:article].downcase}%")
-      p @articles
-    end
-    p @articles
-    p "out"
-    render :"/wikis/results"
+      # Article and Wiki specified
+      if (!params[:article].empty? && !params[:wiki_type].empty?)
+        @article_search = params[:article]
+        @wiki_search = params[:wiki_type]
+        @wiki = Wiki.find_by(description: params[:wiki_type])
+        @articles = Article.where("(lower(title) LIKE ? OR lower(content) LIKE ?) AND wiki_id = ?", "%#{params[:article].downcase}%", "%#{params[:article].downcase}%", @wiki.id.to_s)
+        render :"/wikis/results"
+      # Only Article specified
+      elsif !params[:article].empty?
+        @article_search = params[:article]
+        @articles = Article.where("lower(title) LIKE ? OR lower(content) LIKE ?", "%#{params[:article].downcase}%", "%#{params[:article].downcase}%")
+          render :"/wikis/results"
+      # Only Wiki specified
+      else
+        @wiki_search = params[:wiki_type]
+        @wiki = Wiki.find_by(description: params[:wiki_type])
+        @articles = Article.where("wiki_id = ?", @wiki.id.to_s)
+        render :"/wikis/results"
+      end
+  end
+
+  def searchwiki
+    @wikis = Wiki.where('lower(description) LIKE ?', "%#{params[:description].downcase}%")
+
+    render json: @wikis
   end
 end

@@ -5,6 +5,9 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application'%>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Latest compiled and minified CSS -->
@@ -29,7 +32,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-        <form class="navbar-form navbar-left" role="search" action="/search" method="get">
+        <form ng-controller="SearchCtrl" class="navbar-form navbar-left" role="search" action="/search" method="get">
           <div class="form-group">
 
             <input name="article" type="text" class="form-control" placeholder="Search for keywords...">
@@ -37,7 +40,8 @@
           </div>
           <div class="form-group">
 
-            <input name="wiki_type" type="text" class="form-control" placeholder="in all Wikis">
+            <input id="typeaheadd" data-provide="typeahead" type="text" ng-model="async" typeahead="address for address in getWikis($viewValue)" class="form-control" placeholder="in all Wikis">
+            <input type="hidden" name="wiki_type" value="{{async}}" />
 
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
