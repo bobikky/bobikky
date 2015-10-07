@@ -4,13 +4,25 @@
     <h4> <%= @wiki.description %> </h4>
 	</div>
 </div>
+
 <br><br>
+
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <div class="panel-primary">
     	<div class="panel-content"><%=@article.content%></div>
     </div>
+
+    <br><br>
+
+    <% if current_user.admin? %>
+      <a href="<%=edit_wiki_article_path(@wiki.id, @article.id)%>" class="btn btn-primary">Edit</a>
+      <a href="<%=%>" class="btn btn-danger">Delete</a>
+    <% elsif current_user %>
+      <a href="<%=edit_wiki_article_path(@wiki.id, @article.id)%>" class="btn btn-primary">Edit</a>
+    <% end %>
+
   </div>
   <div class="col-md-1"></div>
 </div>

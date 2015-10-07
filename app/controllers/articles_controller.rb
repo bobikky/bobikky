@@ -28,8 +28,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def update
+  def edit
+    @wiki = Wiki.find_by(id: params[:wiki_id])
+    @article = Article.find_by(id: params[:id])
+  end
 
+  def update
+    
   end
 
   def destroy
