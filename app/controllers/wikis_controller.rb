@@ -33,4 +33,16 @@ class WikisController < ApplicationController
     render :"/wikis/show"
   end
 
+  def new
+    redirect '/'
+  end
+
+  def create
+    redirect '/'
+  end
+
+  def destroy
+    redirect '/'
+  end
+
 end
