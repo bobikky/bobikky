@@ -2,6 +2,10 @@
 	<div class="col-md-10 col-md-offset-1">
 		<h2> <%= @article.title.html_safe %> </h2>
     <h4> <%= @wiki.description %> </h4>
+		<p class="text-info"> Published: <%= @article.published %> </p>
+		<% if @article.needs_sources %>
+			<p class="text-danger">This article needs sources.</p>
+		<% end %>
 	</div>
 </div>
 
