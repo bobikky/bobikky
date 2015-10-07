@@ -19,9 +19,9 @@
     <% @articles.each do |article| %>
     <div class="panel-primary">
       <div class="panel-heading">
-        <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title%></a>
+        <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title.html_safe%></a>
       </div>
-      <div class="panel-content"><%=article.content%></div>
+      <div class="panel-content"><%=article.content.html_safe%></div>
       </br>
     </div>
     <% end %>
