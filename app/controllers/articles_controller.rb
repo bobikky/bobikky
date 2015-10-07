@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 
     @article.update(article_params)
 
-    redirect_to wiki_article_path(@wiki.id, @article.id)
+    redirect_to wiki_path(@wiki.id)
   end
 
   def destroy
