@@ -5,15 +5,18 @@
 
 angular.module('AngularRails')
 
-    .controller('WikisCtrl', ['$scope' , '$http', function ($scope,$http) {
+    .controller('WikisCtrl', ['$scope' , '$window', '$http', function ($scope,$window,$http) {
     	var home = $scope;
 
     	home.wikis = [];
-      console.log('hi');
     	$http.get('/wikis.json').success(function(data){
     		home.wikis = data;
-        console.log(home.wikis);
     	});
+
+        $scope.go = function(hash) {
+            $window.location.href = hash;
+        };
+
     }])
 
     .controller('UserCtrl', ['$scope', '$window', function ($scope, $window) {

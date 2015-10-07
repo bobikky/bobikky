@@ -23,6 +23,7 @@ class WikisController < ApplicationController
 
 
   def show
+    puts "we are in"
     @wiki = Wiki.find_by(id: params[:id])
     if user_signed_in?
       @articles = Article.where(wiki_id: params[:id])
