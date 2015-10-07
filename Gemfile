@@ -8,6 +8,8 @@ gem 'rails', '4.2.3'
 gem 'coveralls'
 gem 'pg'
 gem 'devise'
+gem 'capybara-angular'
+gem 'capybara'
 gem 'ffaker'
 gem 'rails_12factor', group: :production
 gem 'ngannotate-rails'

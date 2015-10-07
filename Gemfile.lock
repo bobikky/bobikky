@@ -269,6 +269,7 @@ DEPENDENCIES
   angular-rails-templates
   bower-rails
   byebug (~> 6.0.2)
+  capybara
   capybara-angular
   coveralls
   devise
