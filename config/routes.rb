@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { sessions: "users/sessions" }
+
+  get '/search', to: 'wikis#search'
 end

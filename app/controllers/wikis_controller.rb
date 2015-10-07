@@ -23,7 +23,6 @@ class WikisController < ApplicationController
 
 
   def show
-    puts "we are in"
     @wiki = Wiki.find_by(id: params[:id])
     if user_signed_in?
       @articles = Article.where(wiki_id: params[:id])
@@ -33,4 +32,17 @@ class WikisController < ApplicationController
     render :"/wikis/show"
   end
 
+  def search
+    p params
+    if (params[:article] == true && params[:wiki_type] == true)
+      p "first"
+      @articles = Article.where("lower(title) = ? OR lower(content) = ?", params[:article].downcase, params[:wiki_type].downcase)
+    elsif params[:article]
+      p "second"
+      @articles = Article.where("lower(title) = ?", params[:article].downcase)
+      p @articles
+    end
+    p "out"
+    render :"/wikis/results"
+  end
 end
