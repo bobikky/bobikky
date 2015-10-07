@@ -9,8 +9,8 @@
 			</div>
 			<div ng-repeat="article in wiki.articles">
 				<div class="panel-body">
-					<p ng-bind-html="{{ article.title | unsafe }}"></p>
-					<p>{{article.content}}</p>
+					<h4 ng-bind-html="article.title"></h4>
+					<p ng-bind-html="article.content"></p>
 				</div>
 			</div>
 		</div>

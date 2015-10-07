@@ -1,7 +1,8 @@
 angular
     .module('AngularRails', [
         'ngRoute',
-        'templates'
+        'templates',
+        'ngSanitize'
     ]).config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {

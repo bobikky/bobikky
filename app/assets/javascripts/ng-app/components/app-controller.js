@@ -3,9 +3,9 @@
 //         $scope.things = ['Angular', 'Rails 4.1', 'Working', 'Together!!'];
 //     });
 
-angular.module('AngularRails', ['ngSanitize'])
+angular.module('AngularRails')
 
-    .controller('WikisCtrl', ['$scope' , '$window', '$http', function ($scope,$window,$http) {
+    .controller('WikisCtrl', ['$scope', '$window', '$http', function ($scope, $window, $http) {
     	var home = $scope;
 
     	home.wikis = [];
@@ -16,7 +16,6 @@ angular.module('AngularRails', ['ngSanitize'])
         $scope.go = function(hash) {
             $window.location.href = hash;
         };
-
     }])
 
     .controller('UserCtrl', ['$scope', '$window', function ($scope, $window) {
@@ -33,10 +32,4 @@ angular.module('AngularRails', ['ngSanitize'])
         $http.get('wiki.json').success(function(data){
             home.wiki = data;
         });
-    }])
-
-    .filter('unsafe', function($sce) {
-      return function(val) {
-        return $sce.trustAsHtml(val);
-      };
-    });
+    }]);

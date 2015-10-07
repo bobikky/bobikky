@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<h2><span class="text-danger">Edit</span> <strong><%= @article.title %></strong> in <strong><%= @wiki.description %></strong></h2><br>
+		<h2><span class="text-danger">Edit</span> <%= @article.title.html_safe %> in <strong><%= @wiki.description %></strong></h2><br>
 	</div>
 </div>
 
