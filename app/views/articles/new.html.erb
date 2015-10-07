@@ -19,10 +19,12 @@
 
     <div class="checkbox form-group col-md-10">
       <%= check_box(@article.published, :published, {}, "true", "false") %>
+      <div>Publish article</div>
     </div>
 
     <div class="checkbox form-group col-md-10">
       <%= check_box(@article.needs_sources, :needs_sources, {}, "true", "false") %>
+      <div>Needs sources</div><br>
     </div>
 
     <div class="form-group col-md-10">

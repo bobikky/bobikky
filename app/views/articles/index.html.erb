@@ -9,9 +9,11 @@
   <div class="col-md-10">
   	<% @articles.each do |article| %>
     <div class="panel-primary">
-    	<div class="panel-heading"><a href="<%=wiki_article_path(@wiki.id, article.id)%>" class="text-muted"><%=article.title%></a></div>
-    	<div class="panel-content"><%=article.content%></div>
-    </br>
+			<div class="panel-heading">
+        <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title%></a>
+      </div>
+      <div class="panel-content"><%=article.content%></div>
+      </br>
     </div>
     <% end %>
   </div>
