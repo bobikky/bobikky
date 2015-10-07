@@ -33,4 +33,11 @@ class WikisController < ApplicationController
     render :"/wikis/show"
   end
 
+  def add_user
+    @wiki = Wiki.find_by(id: params[:id])
+    current_user.wikis << @wiki
+
+    redirect_to @wiki
+  end
+
 end
