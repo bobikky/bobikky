@@ -8,6 +8,8 @@ gem 'rails', '4.2.3'
 gem 'coveralls'
 gem 'pg'
 gem 'devise'
+gem 'capybara-angular'
+gem 'capybara'
 gem 'ffaker'
 gem 'rails_12factor', group: :production
 gem 'ngannotate-rails'
@@ -38,7 +40,7 @@ gem 'travis', '~> 1.8.0'
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
-
+gem 'capybara-angular'
 
 
 # Use ActiveModel has_secure_password
