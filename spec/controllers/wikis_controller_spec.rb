@@ -25,5 +25,13 @@ RSpec.describe WikisController do
 	      get :show, id: @wiki
 	      response.should render_template :show
 	    end
+
+	    it 'assigns shows all the articles of that wiki' do
+	    	@wiki2 = Wiki.create(description: "Music")
+	    	@article1 = Article.create(title: "Kanye", content: "Dope Song", published: true, needs_sources: false, wiki_id: @wiki2.id)
+	    	@article2 = Article.create(title: "To Pimp A Butterfly", content: "A Dope Album", published: true, needs_sources: false, wiki_id: @wiki2.id)
+	    	get :show, id: @wiki2
+	    	expect(assigns(:articles)).to eq([@article1, @article2])
+	    end
 	end
 end
