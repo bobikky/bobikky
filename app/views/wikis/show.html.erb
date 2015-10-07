@@ -6,7 +6,7 @@
 
 		<a href="/wikis/<%=@wiki.id%>/articles/new" class="btn btn-warning">Add Article</a>
 
-		<% unless current_user.wikis.include?(@wiki) %>
+		<% unless current_user && !wiki_member?(current_user.id, @wiki.id) %>
 			<%= link_to "Join Wiki", add_user_path(@wiki.id), class: "btn btn-info" %>
 		<% end %>
 
