@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<h2> <%= @article.title %> </h2>
+		<h2> <%= @article.title.html_safe %> </h2>
     <h4> <%= @wiki.description %> </h4>
 	</div>
 </div>
@@ -11,7 +11,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <div class="panel-primary">
-    	<div class="panel-content"><%=@article.content%></div>
+    	<div class="panel-content"><%=@article.content.html_safe%></div>
     </div>
 
     <br><br>

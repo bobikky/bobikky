@@ -5,7 +5,7 @@
 
 angular.module('AngularRails')
 
-    .controller('WikisCtrl', ['$scope' , '$window', '$http', function ($scope,$window,$http) {
+    .controller('WikisCtrl', ['$scope', '$window', '$http', function ($scope, $window, $http) {
     	var home = $scope;
 
     	home.wikis = [];
@@ -16,7 +16,6 @@ angular.module('AngularRails')
         $scope.go = function(hash) {
             $window.location.href = hash;
         };
-
     }])
 
     .controller('UserCtrl', ['$scope', '$window', function ($scope, $window) {
@@ -25,12 +24,20 @@ angular.module('AngularRails')
       };
     }])
 
-    .controller('WikiShowCtrl', ['$scope' , '$http', function ($scope,$http) {
-        var home = $scope;
+    .controller('SearchCtrl', function ($scope,$http,$window) {
+      $scope.getWikis = function(val) {
 
-        home.wiki = [];
+        return $http.get('/searchwiki', {
+            params: {
+                description:val
+            }
+          }).then(function(response){
+            console.log(response);
+            return response.data.map(function(wiki){
+                return wiki.description
+            })
+          })
 
-        $http.get('wiki.json').success(function(data){
-            home.wiki = data;
-        });
-    }]);
+      };
+    })
+    ;

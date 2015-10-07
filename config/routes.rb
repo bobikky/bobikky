@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
 
   devise_for :users, controllers: { sessions: "users/sessions" }
+
+  get '/search', to: 'wikis#search'
+
+  get '/searchwiki', to: 'wikis#searchwiki'
 end
