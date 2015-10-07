@@ -33,3 +33,5 @@ articles.each do |article|
     article.categories << Category.all.sample
   end
 end
+
+User.create!(email: "admin@admin.com", password: "admin", admin: true)
