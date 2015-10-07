@@ -2,6 +2,8 @@ angular
     .module('AngularRails', [
         'ngRoute',
         'templates',
+        'ngAnimate',
+        'ui.bootstrap'
         'ngSanitize'
     ]).config(function ($routeProvider, $locationProvider) {
         $routeProvider
