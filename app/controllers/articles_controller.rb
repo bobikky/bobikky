@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ApplicationHelper
 
   def index
     @wiki = Wiki.find_by(id: params[:wiki_id])
