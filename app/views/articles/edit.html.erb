@@ -4,7 +4,7 @@
 	</div>
 </div>
 
-<%= form_for :article, url: wiki_article_path(@wiki.id, @article.id), method: :put do |f| %>
+<%= form_for :article, url: wiki_path(@wiki.id), method: :put do |f| %>
   <div class="col-md-offset-1">
 
     <div class="form-group col-md-10">
