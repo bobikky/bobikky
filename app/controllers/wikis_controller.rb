@@ -7,7 +7,7 @@ class WikisController < ApplicationController
     @wikis = Wiki.all
 
     @wikis.each do |wiki|
-      if user_signed_in?
+      if user_signed_in? && current_user.wikis.include?(wiki)
         articles = Article.where(wiki_id: wiki.id).first(2)
       else
         articles = Article.where("published = ? AND wiki_id = ?", true, wiki.id).first(2)
@@ -24,7 +24,7 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find_by(id: params[:id])
-    if user_signed_in?
+    if user_signed_in? && current_user.wikis.include?(@wiki)
       @articles = Article.where(wiki_id: params[:id])
     else
     	@articles = Article.where("published = ? AND wiki_id = ?", true, params[:id])
@@ -61,11 +61,17 @@ class WikisController < ApplicationController
   end
 
   def new
-    redirect '/'
+    redirect_to '/' if !current_user
+    @wiki = Wiki.new
   end
 
   def create
-    redirect '/'
+    @wiki = Wiki.new(wiki_params)
+    if @wiki.save
+      redirect_to '/'
+    else
+      render 'new'
+    end
   end
 
   def destroy
@@ -82,4 +88,7 @@ class WikisController < ApplicationController
     end
   end
 
+  def wiki_params
+    params.require(:wiki).permit(:description)
+  end
 end

@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    redirect_to '/' if !current_user
     @wiki = Wiki.find_by(id: params[:wiki_id])
     @article = Article.new
   end
