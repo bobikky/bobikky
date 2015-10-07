@@ -1,5 +1,8 @@
-<h1>These are the results</h1>
-
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <h2> These are the Results: </h2>
+  </div>
+</div>
 <br><br>
 <div class="row">
   <div class="col-md-1"></div>
@@ -7,7 +10,7 @@
     <% @articles.each do |article| %>
     <div class="panel-primary">
       <div class="panel-heading">
-        <a class="text-muted" href="/wikis/<%=@wiki.id%>/articles/<%=article.id%>"><%=article.title%></a>
+        <a class="text-muted" href="/wikis/<%=article.wiki_id%>/articles/<%=article.id%>"><%=article.title%></a>
       </div>
       <div class="panel-content"><%=article.content%></div>
       </br>

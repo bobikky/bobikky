@@ -36,12 +36,13 @@ class WikisController < ApplicationController
     p params
     if (params[:article] == true && params[:wiki_type] == true)
       p "first"
-      @articles = Article.where("lower(title) = ? OR lower(content) = ?", params[:article].downcase, params[:wiki_type].downcase)
+      @articles = Article.where("(lower(title) LIKE ? OR lower(content) LIKE ?) AND lower(wiki_id) LIKE ?", "%#{params[:article].downcase}%", "%#{params[:article].downcase}%")
     elsif params[:article]
       p "second"
-      @articles = Article.where("lower(title) = ?", params[:article].downcase)
+      @articles = Article.where("lower(title) LIKE ? OR lower(content) LIKE ?", "%#{params[:article].downcase}%", "%#{params[:article].downcase}%")
       p @articles
     end
+    p @articles
     p "out"
     render :"/wikis/results"
   end
