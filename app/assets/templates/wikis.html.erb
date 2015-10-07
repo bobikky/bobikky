@@ -1,8 +1,10 @@
 <div id="main_container">
 	<div ng-repeat="wiki in wikis">
-		<div class="panel-info">
+		<div class="panel panel-info">
 			<div class="panel-heading">
+				<a class="text-muted" href="/wiki/{{wiki.id}}">
 				<h3>{{wiki.description}}</h3>
+			</a>
 			</div>
 			<div ng-repeat="article in wiki.articles">
 				<div class="panel-body">
