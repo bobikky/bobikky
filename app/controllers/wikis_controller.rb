@@ -74,9 +74,12 @@ class WikisController < ApplicationController
 
   def add_user
     @wiki = Wiki.find_by(id: params[:id])
-    current_user.wikis << @wiki
-
-    redirect_to @wiki
+    if current_user
+      current_user.wikis << @wiki
+      redirect_to @wiki
+    else
+      redirect_to new_user_session_path
+    end
   end
 
 end

@@ -19,7 +19,7 @@
     <% if current_user.admin? %>
       <a href="<%=edit_wiki_article_path(@wiki.id, @article.id)%>" class="btn btn-primary">Edit</a>
 			<%= link_to "Delete", wiki_article_path(@wiki.id, @article.id), method: :delete, class: "btn btn-danger" %>
-    <% elsif current_user && current_user.wikis.include?(@wiki) %>
+    <% elsif current_user && wiki_member?(current_user.id, @wiki.id) %>
       <a href="<%=edit_wiki_article_path(@wiki.id, @article.id)%>" class="btn btn-primary">Edit</a>
     <% end %>
 
