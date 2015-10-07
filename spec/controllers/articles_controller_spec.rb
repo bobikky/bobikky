@@ -42,4 +42,20 @@ RSpec.describe ArticlesController do
 		end
   	end
 
+  	describe 'GET edit' do 
+  		before{
+  			@wiki = Wiki.create!(description: "heroku sucks")
+  			@article = Article.create(title: "H to the OV", content: "By the OZ", published: true, needs_sources: false, wiki_id: @wiki.id)
+  		}
+  		it 'renders edit page' do 
+  			get :edit, {wiki_id: @wiki.id, id: @article.id}
+  			expect(response).to render_template(:edit)
+  		end
+  	end
+
+  	# describe 'put update' do 
+  	# 	before{
+
+  	# 	}
+  	# end
 end
