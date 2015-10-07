@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @wiki
     else
+      puts @article.errors.full_messages
       render 'new'
     end
   end

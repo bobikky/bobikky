@@ -43,6 +43,7 @@ class WikisController < ApplicationController
 
   def destroy
     redirect '/'
+  end
 
   def add_user
     @wiki = Wiki.find_by(id: params[:id])

@@ -34,4 +34,46 @@ RSpec.describe WikisController do
 	    	expect(assigns(:articles)).to eq([@article1, @article2])
 	    end
 	end
+
+	describe "GET new" do
+		it "renders new template" do
+			get :new
+			response.should render_template :new
+		end
+	end
+
+	describe 'POST create' do 
+
+		it "creates a new wiki" do 
+			expect {
+      			post :create, {wiki: {:description => "Coding Wiki"} }
+   			}.to change(Wiki, :count).by(1)
+		    # post :create, {wiki_id: @wiki.id}, :article => {:title => "M-E-T-H-O-D MAN", content: "ChessBoxin", published: true, needs_sources: false, wiki_id: @wiki.id}}
+		    # get "/wikis/#{@wiki.id}"
+		    # expect(assigns(:articles)).to eq([:article])
+		
+		end
+  	end
+
+  	describe 'DELETE destroy' do
+  		before{
+  				@wiki = Wiki.create!(description: "Computers")
+  			}
+  		it "deletes a wiki" do
+  			
+  			expect(@wiki.destroy).to change(Wiki, :count).by(1)
+  		end
+  	end
+
+  	describe 'GET add_user' do
+  		before{@wiki = Wiki.create!(description: "36 chambers")
+  			@user = User.create!(email: "wyethjackson@gmail.com", password: "123")
+  			allow(controller).to receive(:current_user) { @user } 
+  		}
+  		it 'adds a wiki to a current users list of wikis' do
+  			get :add_user, {id: @wiki.id }
+  			expect(@user.wikis).to eq([@wiki])
+  		end
+  	end
+
 end
