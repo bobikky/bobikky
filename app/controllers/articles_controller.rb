@@ -39,14 +39,15 @@ class ArticlesController < ApplicationController
 
     @article.update(article_params)
 
-    redirect_to wiki_article_path(@wiki.id, @article.id)
+    redirect_to wiki_path(@wiki.id)
   end
 
   def destroy
+    @wiki = Wiki.find_by(id: params[:wiki_id])
     @article = Article.find_by(id: params[:id])
     @article.destroy
 
-    redirect_to wiki_articles_path
+    redirect_to wiki_path(@wiki.id)
   end
 
   private
