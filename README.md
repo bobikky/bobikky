@@ -15,5 +15,5 @@ Wiki Bobikky is a no-frills, open source Wiki engine that offers basic Wiki func
 6. immediately, sign in as an admin (username `admin@admin.com` & password `admin`), or sign up as a user!
 
 
-## How to use Wiki Bobikky
-From the main page, any viewer can select any Wiki for further exploration. Each Wiki's home page lists articles that have been published to that Wiki. Members of a Wiki can also view unpublished articles. Members of a Wiki can create and edit articles in that Wiki. Members can also toggle the article's status between published/unpublished, and can also set/reset a flag to indicate an article "needs sources". From the Main page, viewers can search for an article by keywords in the article title or text; the search can examine all Wikis or viewers can restrict the search to specific Wikis they select from a pulldown menu.
+## How to Use Wiki Bobikky
+From the main page, any viewer can select a Wiki for further exploration. Each Wiki's home page lists articles that have been published to that Wiki, but only members of a Wiki can also view unpublished articles. Members of a Wiki can create and edit articles in that Wiki. Members can also toggle the article's status between published/unpublished, and can also set/reset a flag to indicate an article "needs sources". From the Main page, viewers can search for an article by keywords in the article title or text; the search can examine all Wikis or viewers can restrict the search to specific Wikis they select from a pulldown menu.
